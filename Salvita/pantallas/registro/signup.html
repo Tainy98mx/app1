@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Salvita</title>
+    <link rel="stylesheet" href="../../fonts/montserrat.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="./css/signup.css">
+    <script src="../../js/db.js" defer></script>
+    <script src="./js/signup.js" defer></script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="tarjeta-registro">
+            <div class="cabecera">
+                <h1>Crear una Cuenta</h1>
+                <p>Regístrate en Salvita para cuidar de tu salud</p>
+            </div>
+            
+            <form id="formularioRegistro" novalidate>
+                <!-- Progreso del formulario -->
+                <div class="indicador-progreso">
+                    <div class="paso activo" data-paso="datosPersonales">
+                        <span class="numero">1</span>
+                        <span class="texto">Datos Personales</span>
+                    </div>
+                    <div class="paso" data-paso="datosMedicos">
+                        <span class="numero">2</span>
+                        <span class="texto">Datos Médicos</span>
+                    </div>
+                    <div class="paso" data-paso="datosCuidador">
+                        <span class="numero">3</span>
+                        <span class="texto">Datos del Cuidador</span>
+                    </div>
+                </div>
+                
+                <!-- Sección 1: Datos Personales -->
+                <div class="seccion" id="seccionDatosPersonales">
+                    <h2>Datos Personales</h2>
+                    
+                    <div class="grupo-formulario">
+                        <label for="nombre">Nombre completo</label>
+                        <div class="campo-con-icono">
+                            <img src="./iconos/user.svg" alt="Icono de usuario" class="icono">
+                            <input 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                required 
+                                placeholder="Ingrese su nombre completo">
+                        </div>
+                        <span class="mensaje-error" id="errorNombre"></span>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="fechaNacimiento">Fecha de nacimiento</label>
+                        <div class="campo-con-icono">
+                            <img src="./iconos/calendar.svg" alt="Icono de calendario" class="icono">
+                            <input 
+                                type="date" 
+                                id="fechaNacimiento" 
+                                name="fechaNacimiento" 
+                                required>
+                        </div>
+                        <span class="mensaje-error" id="errorFechaNacimiento"></span>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="genero">Género</label>
+                        <div class="campo-con-icono select-container">
+                            <img src="./iconos/gender.svg" alt="Icono de género" class="icono">
+                            <select id="genero" name="genero" required>
+                                <option value="" disabled selected>Seleccione su género</option>
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otro">Otro</option>
+                                <option value="prefiero-no-decir">Prefiero no decir</option>
+                            </select>
+                        </div>
+                        <span class="mensaje-error" id="errorGenero"></span>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="correo">Correo electrónico</label>
+                        <div class="campo-con-icono">
+                            <img src="./iconos/email.svg" alt="Icono de correo" class="icono">
+                            <input 
+                                type="email" 
+                                id="correo" 
+                                name="correo" 
+                                required 
+                                placeholder="correo@ejemplo.com">
+                        </div>
+                        <span class="mensaje-error" id="errorCorreo"></span>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="contrasena">Contraseña</label>
+                        <div class="campo-con-icono">
+                            <img src="./iconos/password.svg" alt="Icono de contraseña" class="icono">
+                            <input 
+                                type="password" 
+                                id="contrasena" 
+                                name="contrasena" 
+                                required 
+                                placeholder="Cree una contraseña segura">
+                            <button type="button" id="mostrarContrasena" class="boton-mostrar">Mostrar</button>
+                        </div>
+                        <span class="mensaje-error" id="errorContrasena"></span>
+                        <div class="requisitos-contrasena">
+                            <p>La contraseña debe contener:</p>
+                            <ul>
+                                <li id="req-longitud">Al menos 8 caracteres</li>
+                                <li id="req-mayuscula">Al menos una letra mayúscula</li>
+                                <li id="req-numero">Al menos un número</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="confirmarContrasena">Confirmar Contraseña</label>
+                        <div class="campo-con-icono">
+                            <img src="./iconos/password.svg" alt="Icono de contraseña" class="icono">
+                            <input 
+                                type="password" 
+                                id="confirmarContrasena" 
+                                name="confirmarContrasena" 
+                                required 
+                                placeholder="Repita su contraseña">
+                        </div>
+                        <span class="mensaje-error" id="errorConfirmarContrasena"></span>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="telefono">Número telefónico</label>
+                        <div class="campo-con-icono">
+                            <img src="./iconos/phone.svg" alt="Icono de teléfono" class="icono">
+                            <input 
+                                type="tel" 
+                                id="telefono" 
+                                name="telefono" 
+                                required 
+                                placeholder="Ejemplo: 1234567890">
+                        </div>
+                        <span class="mensaje-error" id="errorTelefono"></span>
+                    </div>
+                    
+                    <div class="botones-navegacion">
+                        <button type="button" class="boton-secundario" id="volverInicio">Volver</button>
+                        <button type="button" class="boton-principal" id="siguienteDatosMedicos">Siguiente</button>
+                    </div>
+                </div>
+                
+                <!-- Sección 2: Datos Médicos -->
+                <div class="seccion oculto" id="seccionDatosMedicos">
+                    <h2>Datos Médicos</h2>
+                    
+                    <div class="grupo-formulario">
+                        <label>Enfermedades preexistentes</label>
+                        <div class="lista-seleccion" id="enfermedades">
+                            <div class="opcion-multiple">
+                                <input type="checkbox" id="enf-diabetes" name="enfermedades" value="diabetes">
+                                <label for="enf-diabetes">Diabetes</label>
+                            </div>
+                            <div class="opcion-multiple">
+                                <input type="checkbox" id="enf-hipertension" name="enfermedades" value="hipertension">
+                                <label for="enf-hipertension">Hipertensión</label>
+                            </div>
+                            <div class="opcion-multiple">
+                                <input type="checkbox" id="enf-asma" name="enfermedades" value="asma">
+                                <label for="enf-asma">Asma</label>
+                            </div>
+                            <div class="opcion-multiple">
+                                <input type="checkbox" id="enf-cardiopatia" name="enfermedades" value="cardiopatia">
+                                <label for="enf-cardiopatia">Cardiopatía</label>
+                            </div>
+                            <div class="opcion-multiple">
+                                <input type="checkbox" id="enf-artritis" name="enfermedades" value="artritis">
+                                <label for="enf-artritis">Artritis</label>
+                            </div>
+                            <div class="opcion-multiple">
+                                <input type="checkbox" id="enf-otra" name="enfermedades" value="otra">
+                                <label for="enf-otra">Otra</label>
+                                <input type="text" id="enf-otra-texto" class="input-complementario oculto" placeholder="Especifique">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="alergias">Alergias</label>
+                        <textarea 
+                            id="alergias" 
+                            name="alergias" 
+                            placeholder="Describa sus alergias, separe con comas (ej. penicilina, mariscos, nueces)"
+                            rows="3"></textarea>
+                    </div>
+                    
+                    <div class="grupo-formulario">
+                        <label for="grupoSanguineo">Grupo sanguíneo</label>
+                        <div class="campo-con-icono select-container">
+                            <img src="./iconos/health.svg" alt="Icono de salud" class="icono">
+                            <select id="grupoSanguineo" name="grupoSanguineo">
+                                <option value="" disabled selected>Seleccione su grupo sanguíneo</option>
+                                <option value="a+">A+</option>
+                                <option value="a-">A-</option>
+                                <option value="b+">B+</option>
+                                <option value="b-">B-</option>
+                                <option value="ab+">AB+</option>
+                                <option value="ab-">AB-</option>
+                                <option value="o+">O+</option>
+                                <option value="o-">O-</option>
+                                <option value="desconocido">Desconocido</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="botones-navegacion">
+                        <button type="button" class="boton-secundario" id="volverDatosPersonales">Anterior</button>
+                        <button type="button" class="boton-principal" id="siguienteDatosCuidador">Siguiente</button>
+                    </div>
+                </div>
+                
+                <!-- Sección 3: Datos del Cuidador -->
+                <div class="seccion oculto" id="seccionDatosCuidador">
+                    <h2>Datos del Cuidador <span class="opcional">(Opcional)</span></h2>
+                    
+                    <div class="grupo-formulario checkbox">
+                        <input type="checkbox" id="tieneCuidador" name="tieneCuidador">
+                        <label for="tieneCuidador">Tengo un cuidador o persona responsable</label>
+                    </div>
+                    
+                    <div id="formularioCuidador" class="oculto">
+                        <div class="grupo-formulario">
+                            <label for="nombreCuidador">Nombre completo del cuidador</label>
+                            <div class="campo-con-icono">
+                                <img src="./iconos/caregiver.svg" alt="Icono de cuidador" class="icono">
+                                <input 
+                                    type="text" 
+                                    id="nombreCuidador" 
+                                    name="nombreCuidador" 
+                                    placeholder="Nombre del cuidador">
+                            </div>
+                        </div>
+                        
+                        <div class="grupo-formulario">
+                            <label for="relacionCuidador">Relación con el usuario</label>
+                            <div class="campo-con-icono select-container">
+                                <img src="./iconos/caregiver.svg" alt="Icono de cuidador" class="icono">
+                                <select id="relacionCuidador" name="relacionCuidador">
+                                    <option value="" disabled selected>Seleccione la relación</option>
+                                    <option value="familiar">Familiar</option>
+                                    <option value="cuidador-profesional">Cuidador profesional</option>
+                                    <option value="amigo">Amigo</option>
+                                    <option value="vecino">Vecino</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="grupo-formulario">
+                            <label for="telefonoCuidador">Número telefónico del cuidador</label>
+                            <div class="campo-con-icono">
+                                <img src="./iconos/phone.svg" alt="Icono de teléfono" class="icono">
+                                <input 
+                                    type="tel" 
+                                    id="telefonoCuidador" 
+                                    name="telefonoCuidador" 
+                                    placeholder="Teléfono del cuidador">
+                            </div>
+                        </div>
+                        
+                        <div class="grupo-formulario">
+                            <label for="correoCuidador">Correo electrónico del cuidador</label>
+                            <div class="campo-con-icono">
+                                <img src="./iconos/email.svg" alt="Icono de correo" class="icono">
+                                <input 
+                                    type="email" 
+                                    id="correoCuidador" 
+                                    name="correoCuidador" 
+                                    placeholder="correo@ejemplo.com">
+                            </div>
+                        </div>
+                        
+                        <div class="grupo-formulario checkbox">
+                            <input type="checkbox" id="notificacionesCuidador" name="notificacionesCuidador">
+                            <label for="notificacionesCuidador">¿Recibirá notificaciones de emergencia?</label>
+                        </div>
+                    </div>
+                    
+                    <div id="mensajeAlerta" class="alerta oculto"></div>
+                    
+                    <div class="botones-navegacion">
+                        <button type="button" class="boton-secundario" id="volverDatosMedicos">Anterior</button>
+                        <button type="submit" class="boton-principal" id="completarRegistro">Registrarse</button>
+                    </div>
+                    
+                    <div class="links-adicionales">
+                        <a href="../login/login.html">¿Ya tienes cuenta? Inicia sesión aquí</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

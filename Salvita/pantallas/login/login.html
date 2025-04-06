@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión - Salvita</title>
+    <link rel="stylesheet" href="../../fonts/montserrat.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <script src="../../js/db.js" defer></script>
+    <script src="./js/login.js" defer></script>
+</head>
+<body>
+    <div class="contenedor">
+        <div class="tarjeta-login">
+            <div class="cabecera">
+                <h1>Iniciar Sesión</h1>
+                <p>Accede a Salvita para administrar tu salud</p>
+            </div>
+            
+            <form id="formularioLogin" novalidate>
+                <div class="grupo-formulario">
+                    <label for="credencial">Correo Electrónico o Número Telefónico</label>
+                    <div class="campo-con-icono">
+                        <img src="./iconos/user.svg" alt="Icono de usuario" class="icono">
+                        <input 
+                            type="text" 
+                            id="credencial" 
+                            name="credencial" 
+                            required 
+                            placeholder="correo@ejemplo.com o teléfono"
+                            autocomplete="username">
+                    </div>
+                    <span class="mensaje-error" id="errorCredencial"></span>
+                </div>
+                
+                <div class="grupo-formulario">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="campo-con-icono">
+                        <img src="./iconos/password.svg" alt="Icono de contraseña" class="icono">
+                        <input 
+                            type="password" 
+                            id="contrasena" 
+                            name="contrasena" 
+                            required 
+                            placeholder="Contraseña" 
+                            autocomplete="current-password">
+                        <button type="button" id="mostrarContrasena" class="boton-mostrar">Mostrar</button>
+                    </div>
+                    <span class="mensaje-error" id="errorContrasena"></span>
+                </div>
+                
+                <div class="grupo-formulario checkbox">
+                    <input type="checkbox" id="mantenerSesion" name="mantenerSesion">
+                    <label for="mantenerSesion">Mantener sesión iniciada</label>
+                </div>
+                
+                <div id="mensajeAlerta" class="alerta oculto"></div>
+                
+                <button type="submit" class="boton-principal boton-login">Iniciar sesión</button>
+                
+                <div class="links-adicionales">
+                    <a href="#" id="olvidoContrasena">Olvidé mi contraseña</a>
+                    <a href="../registro/signup.html" class="link-registro">¿No tienes cuenta? Regístrate aquí</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

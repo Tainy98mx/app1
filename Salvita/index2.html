@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>React Interactivo</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+    }
+    .tarjeta {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+    .tarjeta:hover {
+      transform: scale(1.03);
+    }
+    .contador {
+      font-size: 4rem;
+      margin: 20px 0;
+      transition: transform 0.2s ease;
+    }
+    .boton {
+      padding: 12px 25px;
+      margin: 0 10px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    .boton:hover {
+      transform: translateY(-3px);
+    }
+    .sumar {
+      background-color: #4caf50;
+      color: white;
+    }
+    .restar {
+      background-color: #f44336;
+      color: white;
+    }
+  </style>
+
+  <!-- React & ReactDOM -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel">
+    function ContadorInteractivo() {
+      const [contador, setContador] = React.useState(0);
+
+      const sumar = () => setContador(contador + 1);
+      const restar = () => setContador(contador - 1);
+
+      return (
+        <div className="tarjeta">
+          <h1>Contador React</h1>
+          <div className="contador" style={{ transform: "scale(" + (1 + contador * 0.01) + ")" }}>
+            {contador}
+          </div>
+          <button className="boton restar" onClick={restar}>- Restar</button>
+          <button className="boton sumar" onClick={sumar}>+ Sumar</button>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<ContadorInteractivo />);
+  </script>
+</body>
+</html>

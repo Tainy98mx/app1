@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat - Salvita</title>
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../fonts/montserrat.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <!-- CSS Específico del Chat -->
+    <link rel="stylesheet" href="./css/chat.css">
+</head>
+<body>
+    <!-- Header (Cabecera) -->
+    <header class="cabecera">
+        <div class="logo-container">
+            <img src="../dashboard/iconos/logo.svg" alt="Logo Salvita" class="logo">
+            <h1 class="nombre-app">Salvita</h1>
+        </div>
+        <div class="iconos-derecha">
+            <span id="nombreUsuario" class="nombre-usuario">Hola, Usuario</span>
+            <button id="botonNotificaciones" class="icono-boton">
+                <img src="../dashboard/iconos/bell.svg" alt="Notificaciones" class="icono">
+                <span class="contador-notificaciones">2</span>
+            </button>
+            <button id="botonUsuario" class="icono-boton">
+                <img src="../dashboard/iconos/user.svg" alt="Usuario" class="icono">
+            </button>
+            <button id="botonAjustes" class="icono-boton">
+                <img src="../dashboard/iconos/settings.svg" alt="Ajustes" class="icono">
+            </button>
+        </div>
+    </header>
+
+    <!-- Menú desplegable de notificaciones -->
+    <div id="menuNotificaciones" class="menu-desplegable oculto">
+        <h3>Notificaciones</h3>
+        <ul class="lista-notificaciones">
+            <li class="notificacion no-leida">
+                <h4 class="notificacion-titulo">Recordatorio de medicación</h4>
+                <p class="notificacion-texto">Es hora de tomar tu medicamento para la presión arterial.</p>
+                <span class="notificacion-tiempo">Hace 5 minutos</span>
+            </li>
+            <li class="notificacion no-leida">
+                <h4 class="notificacion-titulo">Resultado de análisis disponible</h4>
+                <p class="notificacion-texto">Ya puedes consultar el resultado de tu último análisis de sangre.</p>
+                <span class="notificacion-tiempo">Hace 2 horas</span>
+            </li>
+            <li class="notificacion">
+                <h4 class="notificacion-titulo">Cita médica confirmada</h4>
+                <p class="notificacion-texto">Tu cita con el Dr. García ha sido confirmada para el 10 de mayo a las 15:30.</p>
+                <span class="notificacion-tiempo">Ayer</span>
+            </li>
+        </ul>
+        <a href="#" class="ver-todas">Ver todas</a>
+    </div>
+
+    <!-- Menú desplegable de ajustes -->
+    <div id="menuAjustes" class="menu-desplegable oculto">
+        <h3>Ajustes</h3>
+        <ul class="lista-menu">
+            <li><a href="#" id="enlaceDatosUsuario">Mis datos</a></li>
+            <li><a href="#" id="enlacePreferencias">Preferencias</a></li>
+            <li><a href="#" id="enlaceAyuda">Ayuda</a></li>
+            <li><a href="#" id="enlaceCerrarSesion">Cerrar sesión</a></li>
+        </ul>
+    </div>
+
+    <!-- Contenido principal -->
+    <main class="contenido-principal">
+        <div class="contenedor-chat">
+            <div class="mensajes" id="contenedorMensajes">
+                <!-- Los mensajes se cargarán dinámicamente con JS -->
+            </div>
+            
+            <div class="entrada-mensaje">
+                <input type="text" id="inputMensaje" placeholder="Escribe tu mensaje aquí...">
+                <button id="botonEnviar" class="boton-enviar">
+                    <img src="../dashboard/iconos/send.svg" alt="Enviar" class="icono-enviar">
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de página (Footer) -->
+    <footer class="pie-pagina">
+        <nav class="menu-navegacion">
+            <button class="boton-nav">
+                <img src="../dashboard/iconos/home.svg" alt="Inicio" class="icono-nav">
+                <span class="texto-nav">Inicio</span>
+            </button>
+            <button class="boton-nav activo">
+                <img src="../dashboard/iconos/chat.svg" alt="Chat" class="icono-nav">
+                <span class="texto-nav">Chat</span>
+            </button>
+            <button class="boton-nav">
+                <img src="../dashboard/iconos/pill.svg" alt="Medicamentos" class="icono-nav">
+                <span class="texto-nav">Medicinas</span>
+            </button>
+        </nav>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/db.js"></script>
+    <script src="./js/chat.js"></script>
+</body>
+</html>

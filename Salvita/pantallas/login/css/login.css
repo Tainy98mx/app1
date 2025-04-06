@@ -1,0 +1,225 @@
+/* Estilos específicos para la pantalla de login */
+
+.tarjeta-login {
+    background-color: var(--color-blanco);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.cabecera {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cabecera h1 {
+    color: var(--color-primario);
+    font-size: 2.5rem;
+    font-weight: 800; /* Extra Bold */
+    margin-bottom: 10px;
+}
+
+.cabecera p {
+    color: var(--color-secundario);
+    font-size: 1.1rem;
+}
+
+.grupo-formulario {
+    margin-bottom: 25px;
+}
+
+.grupo-formulario label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    color: var(--color-primario);
+}
+
+.campo-con-icono {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.campo-con-icono .icono {
+    position: absolute;
+    left: 15px;
+    width: 20px;
+    height: 20px;
+    color: var(--color-secundario);
+}
+
+.campo-con-icono input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 2px solid var(--color-terciario);
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.campo-con-icono input:focus {
+    outline: none;
+    border-color: var(--color-secundario);
+    box-shadow: 0 0 0 3px rgba(47, 102, 144, 0.2);
+}
+
+.campo-con-icono input::placeholder {
+    color: #aaa;
+}
+
+.grupo-formulario.checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.grupo-formulario.checkbox input {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.grupo-formulario.checkbox label {
+    margin-bottom: 0;
+    cursor: pointer;
+}
+
+.boton-mostrar {
+    position: absolute;
+    right: 15px;
+    background: none;
+    border: none;
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+.boton-mostrar:hover {
+    color: var(--color-primario);
+}
+
+.mensaje-error {
+    color: var(--color-error);
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+    height: 20px;
+}
+
+.boton-login {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.links-adicionales {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.links-adicionales a {
+    color: var(--color-secundario);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.links-adicionales a:hover {
+    color: var(--color-primario);
+    text-decoration: underline;
+}
+
+.link-registro {
+    margin-top: 10px;
+    font-weight: 700 !important;
+    font-size: 1.05rem;
+}
+
+.alerta {
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.alerta.error {
+    background-color: #ffebee;
+    color: var(--color-error);
+    border: 1px solid #ffcdd2;
+}
+
+.alerta.exito {
+    background-color: #e8f5e9;
+    color: var(--color-exito);
+    border: 1px solid #c8e6c9;
+}
+
+.alerta.cargando {
+    background-color: #e3f2fd;
+    color: var(--color-secundario);
+    border: 1px solid #bbdefb;
+    position: relative;
+    padding-left: 40px;
+}
+
+.alerta.cargando::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 3px solid #bbdefb;
+    border-top: 3px solid var(--color-secundario);
+    border-radius: 50%;
+    animation: girar 1s linear infinite;
+}
+
+@keyframes girar {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+.oculto {
+    display: none;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+    .tarjeta-login {
+        padding: 25px;
+        border-radius: 10px;
+    }
+    
+    .cabecera h1 {
+        font-size: 2rem;
+    }
+    
+    .cabecera p {
+        font-size: 1rem;
+    }
+    
+    .campo-con-icono input {
+        padding: 12px 12px 12px 40px;
+        font-size: 1rem;
+    }
+    
+    .grupo-formulario label {
+        font-size: 1rem;
+    }
+}

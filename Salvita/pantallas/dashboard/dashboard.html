@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Salvita</title>
+    <!-- CSS Global -->
+    <link rel="stylesheet" href="../../fonts/montserrat.css">
+    <link rel="stylesheet" href="../../css/main.css">
+    <!-- CSS Específico del Dashboard -->
+    <link rel="stylesheet" href="./css/dashboard.css">
+</head>
+<body>
+    <!-- Header (Cabecera) -->
+    <header class="cabecera">
+        <div class="logo-container">
+            <img src="./iconos/logo.svg" alt="Logo Salvita" class="logo">
+            <h1 class="nombre-app">Salvita</h1>
+        </div>
+        <div class="iconos-derecha">
+            <button id="botonNotificaciones" class="icono-boton">
+                <img src="./iconos/bell.svg" alt="Notificaciones" class="icono">
+                <span class="contador-notificaciones">2</span>
+            </button>
+            <button id="botonUsuario" class="icono-boton">
+                <img src="./iconos/user.svg" alt="Usuario" class="icono">
+            </button>
+            <button id="botonAjustes" class="icono-boton">
+                <img src="./iconos/settings.svg" alt="Ajustes" class="icono">
+            </button>
+        </div>
+        
+        <!-- Menú desplegable de notificaciones (inicialmente oculto) -->
+        <div id="menuNotificaciones" class="menu-desplegable oculto">
+            <h3>Notificaciones</h3>
+            <ul class="lista-notificaciones">
+                <li class="notificacion no-leida">
+                    <div class="notificacion-contenido">
+                        <p class="notificacion-titulo">Recordatorio de medicamento</p>
+                        <p class="notificacion-texto">Es hora de tomar tu dosis de Paracetamol</p>
+                        <span class="notificacion-tiempo">Hace 5 minutos</span>
+                    </div>
+                </li>
+                <li class="notificacion no-leida">
+                    <div class="notificacion-contenido">
+                        <p class="notificacion-titulo">Cita médica</p>
+                        <p class="notificacion-texto">Mañana tienes cita con Dr. García a las 10:00</p>
+                        <span class="notificacion-tiempo">Hace 2 horas</span>
+                    </div>
+                </li>
+                <li class="notificacion">
+                    <div class="notificacion-contenido">
+                        <p class="notificacion-titulo">Actualización de sistema</p>
+                        <p class="notificacion-texto">Salvita se ha actualizado a la versión 2.0</p>
+                        <span class="notificacion-tiempo">Ayer</span>
+                    </div>
+                </li>
+            </ul>
+            <a href="#" class="ver-todas">Ver todas</a>
+        </div>
+        
+        <!-- Menú desplegable de configuraciones (inicialmente oculto) -->
+        <div id="menuAjustes" class="menu-desplegable oculto">
+            <ul class="lista-menu">
+                <li><a href="#" id="enlaceDatosUsuario">Mis datos</a></li>
+                <li><a href="#" id="enlaceCerrarSesion">Cerrar sesión</a></li>
+            </ul>
+        </div>
+    </header>
+    
+    <!-- Contenido principal -->
+    <main class="contenido-principal">
+        <!-- Sección de bienvenida -->
+        <section class="seccion-bienvenida">
+            <div class="textos-bienvenida">
+                <h2 class="titulo-bienvenida">Bienvenido, <span id="nombreUsuario">Usuario</span></h2>
+                <p class="subtitulo-bienvenida">¿Cómo te sientes hoy?</p>
+            </div>
+            <button class="boton-chat">Chatea conmigo</button>
+        </section>
+        
+        <!-- Contenido desplazable (Body) -->
+        <section class="contenedor-desplazable">
+            <!-- Aquí se agregarán más secciones en el futuro -->
+            <div class="contenido-temporal">
+                <p>El contenido principal de la aplicación se agregará próximamente.</p>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer (Pie de página) -->
+    <footer class="pie-pagina">
+        <nav class="menu-navegacion">
+            <button class="boton-nav activo">
+                <img src="./iconos/home.svg" alt="Inicio" class="icono-nav">
+                <span class="texto-nav">Inicio</span>
+            </button>
+            <button class="boton-nav">
+                <img src="./iconos/chat.svg" alt="Chat" class="icono-nav">
+                <span class="texto-nav">Chat</span>
+            </button>
+            <button class="boton-nav">
+                <img src="./iconos/pill.svg" alt="Medicamentos" class="icono-nav">
+                <span class="texto-nav">Medicinas</span>
+            </button>
+        </nav>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../../js/db.js"></script>
+    <script src="./js/dashboard.js"></script>
+</body>
+</html>
